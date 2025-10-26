@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Racing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="start-screen" class="screen">
+            <h1>Nitro Racer</h1>
+            <div class="currency-display">
+                <span class="caroin-count">0</span> 
+                <span class="caroin-icon">🚗</span>
+            </div>
+            <div class="menu-buttons">
+                <button id="start-btn" class="menu-btn">Start Race</button>
+                <button id="car-shop-btn" class="menu-btn">Car Shop</button>
+                <button id="level-select-btn" class="menu-btn">Level Select</button>
+            </div>
+        </div>
+        
+        <div id="car-shop" class="screen hidden">
+            <h2>Car Shop</h2>
+            <div class="currency-display">
+                <span class="caroin-count">0</span> 
+                <span class="caroin-icon">🚗</span>
+            </div>
+            <div class="car-shop-container">
+                <div class="car-preview">
+                    <canvas id="car-preview-canvas" width="200" height="150"></canvas>
+                    <h3 id="car-name">Select a Car</h3>
+                    <p id="car-stats">Speed: 0 | Handling: 0 | Boost: 0</p>
+                    <p id="car-price">Price: 0 caroins</p>
+                    <button id="buy-car-btn" disabled>Select Car</button>
+                </div>
+                <div class="car-list" id="car-list">
+                    <!-- Cars will be populated by JavaScript -->
+                </div>
+            </div>
+            <button id="back-to-menu" class="back-btn">← Back to Menu</button>
+        </div>
+        
+        <div id="level-select" class="screen hidden">
+            <h2>Racing Map</h2>
+            <div class="level-map" id="level-map">
+                <div class="level-path" id="level-path">
+                    <!-- Level nodes will be added here by JavaScript -->
+                </div>
+            </div>
+            <div class="level-info" id="level-info">
+                <h3>Level <span id="selected-level-number">1</span></h3>
+                <p>Reward: <span id="level-reward">10</span> 🚗</p>
+                <p>Best Time: <span id="best-time">-</span></p>
+                <button id="play-level" class="menu-btn">Start Race</button>
+            </div>
+            <button id="back-to-menu-2" class="back-btn">← Back to Menu</button>
+        </div>
+        
+        <div id="game-screen" class="screen hidden">
+            <div id="hud">
+                <div>Speed: <span id="speed">0</span> km/h</div>
+                <div>Lap: <span id="lap">1</span>/3</div>
+                <div>Time: <span id="time">0.0</span>s</div>
+                <div>Nitro: <span id="nitro">0</span></div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+        </div>
+        
+        <div id="end-screen" class="screen hidden">
+            <h1>Race Complete!</h1>
+            <p>Your time: <span id="final-time">0.0</span>s</p>
+            <button id="restart-btn">Race Again</button>
+        </div>
+        
+        <div id="game-over-screen" class="screen hidden">
+            <h1>Game Over!</h1>
+            <p>You hit a bomb!</p>
+            <button id="menu-btn">Back to Menu</button>
+        </div>
+        
+        <!-- Car Unlock Screen -->
+        <div id="car-unlock-screen" class="screen hidden">
+            <div class="car-unlock-container">
+                <h2>🎉 New Car Unlocked! 🎉</h2>
+                <div class="unlocked-car-display">
+                    <canvas id="unlocked-car-canvas" width="300" height="200"></canvas>
+                    <h3 id="unlocked-car-name">Car Name</h3>
+                    <div class="car-stats">
+                        <div class="stat">Speed: <span id="unlocked-car-speed">0</span></div>
+                        <div class="stat">Handling: <span id="unlocked-car-handling">0</span></div>
+                        <div class="stat">Boost: <span id="unlocked-car-boost">0</span></div>
+                    </div>
+                </div>
+                <p class="unlock-message">Congratulations! You've unlocked a new car!</p>
+                <button id="continue-from-unlock" class="menu-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
